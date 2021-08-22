@@ -33,10 +33,6 @@ function completaTarefa (eventoDeOrigem) {
     eventoDeOrigem.target.className = "itemLista completed";
    }
 }
-let elementos = document.getElementsByClassName("itemLista");
 function apagaTudo () {
-    for(let i = (elementos.length - 1); i <= elementos.length; i -= 1) {
-        let elemento = elementos[i];
-        listaDeTarefas.removeChild(elemento);
-    }
+   listaDeTarefas.innerHTML = "";
 }
