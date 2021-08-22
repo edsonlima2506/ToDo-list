@@ -1,7 +1,9 @@
 let BtnCriarTarefa = document.getElementById("criar-tarefa");
 let listaDeTarefas = document.getElementById("lista-tarefas");
 let textoInput = document.getElementById("texto-tarefa");
+let BtnApagarTudo = document.getElementById("apaga-tudo");
 BtnCriarTarefa.addEventListener("click", adicionaTarefa);
+BtnApagarTudo.addEventListener("click", apagaTudo);
 function adicionaTarefa (){
    let tarefa = document.createElement("li");
    tarefa.innerText = textoInput.value;
@@ -25,9 +27,16 @@ function trocaBg (eventoDeOrigem) {
     document.getElementById(itemClicado).style.backgroundColor = "rgb(128, 128, 128)";
 }
 function completaTarefa (eventoDeOrigem) {
-   if (eventoDeOrigem.target.className == "completed") {
-    eventoDeOrigem.target.className = "";
+   if (eventoDeOrigem.target.className == "itemLista completed") {
+    eventoDeOrigem.target.className = "itemLista";
    } else {
-    eventoDeOrigem.target.className = "completed";
+    eventoDeOrigem.target.className = "itemLista completed";
    }
+}
+let elementos = document.getElementsByClassName("itemLista");
+function apagaTudo () {
+    for(let i = (elementos.length - 1); i <= elementos.length; i -= 1) {
+        let elemento = elementos[i];
+        listaDeTarefas.removeChild(elemento);
+    }
 }
