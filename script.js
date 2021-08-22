@@ -8,6 +8,7 @@ function adicionaTarefa (){
    tarefa.className = "itemLista";
    tarefa.id = textoInput.value;
    tarefa.addEventListener("click", trocaBg);
+   tarefa.addEventListener("dblclick", completaTarefa);
    listaDeTarefas.appendChild(tarefa);
    textoInput.value = "";
 }
@@ -22,4 +23,11 @@ function trocaBg (eventoDeOrigem) {
     }
     let itemClicado = eventoDeOrigem.target.id;
     document.getElementById(itemClicado).style.backgroundColor = "rgb(128, 128, 128)";
+}
+function completaTarefa (eventoDeOrigem) {
+   if (eventoDeOrigem.target.className == "completed") {
+    eventoDeOrigem.target.className = "";
+   } else {
+    eventoDeOrigem.target.className = "completed";
+   }
 }
