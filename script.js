@@ -3,10 +3,15 @@ let listaDeTarefas = document.getElementById("lista-tarefas");
 let textoInput = document.getElementById("texto-tarefa");
 let BtnApagarTudo = document.getElementById("apaga-tudo");
 let BtnApagarCompletos = document.getElementById("remover-finalizados");
+let BtnSalvarTarefas = document.getElementById("salvar-tarefas");
 let ids = [];
+
 BtnCriarTarefa.addEventListener("click", adicionaTarefa);
 BtnApagarTudo.addEventListener("click", apagaTudo);
 BtnApagarCompletos.addEventListener("click", apagaCompletos);
+BtnSalvarTarefas.addEventListener("click", salvaTarefas);
+
+
 function adicionaTarefa (){
    let tarefa = document.createElement("li");
    tarefa.innerText = textoInput.value;
@@ -45,4 +50,8 @@ function apagaCompletos () {
         let completo = document.getElementById(ids[i]);
         listaDeTarefas.removeChild(completo);
     }
+    ids = [];
+}
+function salvaTarefas () {
+    localStorage('lista', listaDeTarefas);
 }
