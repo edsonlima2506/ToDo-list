@@ -30,11 +30,12 @@ function trocaBg (eventoDeOrigem) {
         let bgColor = document.getElementById(identificador).style.backgroundColor;
         if (bgColor == "rgb(128, 128, 128)") {
             document.getElementById(identificador).style.backgroundColor = "white";
+            document.getElementById(identificador).className = "itemLista";
         }
     }
     let itemClicado = eventoDeOrigem.target.id;
     document.getElementById(itemClicado).style.backgroundColor = "rgb(128, 128, 128)";
-    return itemClicado;
+    document.getElementById(itemClicado).className = "itemLista selecionado";
 }
 function completaTarefa (eventoDeOrigem) {
    if (eventoDeOrigem.target.className === "itemLista completed") {
@@ -59,5 +60,7 @@ function salvaTarefas () {
    
 }
 function removeSelecionado () {
-    
+    let remover = document.getElementsByClassName("selecionado");
+    listaDeTarefas.removeChild(remover[0]);
+    console.log(remover);
 }
