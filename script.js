@@ -4,13 +4,14 @@ let textoInput = document.getElementById("texto-tarefa");
 let BtnApagarTudo = document.getElementById("apaga-tudo");
 let BtnApagarCompletos = document.getElementById("remover-finalizados");
 let BtnSalvarTarefas = document.getElementById("salvar-tarefas");
+let BtnDeletaSelecionado = document.getElementById("remover-selecionado");
 let ids = [];
 
 BtnCriarTarefa.addEventListener("click", adicionaTarefa);
 BtnApagarTudo.addEventListener("click", apagaTudo);
 BtnApagarCompletos.addEventListener("click", apagaCompletos);
 BtnSalvarTarefas.addEventListener("click", salvaTarefas);
-
+BtnDeletaSelecionado.addEventListener("click", removeSelecionado);
 
 function adicionaTarefa (){
    let tarefa = document.createElement("li");
@@ -31,15 +32,16 @@ function trocaBg (eventoDeOrigem) {
             document.getElementById(identificador).style.backgroundColor = "white";
         }
     }
-    let itemClicado = eventoDeOrigem.target.id;
-    document.getElementById(itemClicado).style.backgroundColor = "rgb(128, 128, 128)";
+    eventoDeOrigem.target.id = "clicado";
+    document.getElementById("clicado").style.backgroundColor = "rgb(128, 128, 128)";
 }
 function completaTarefa (eventoDeOrigem) {
-   if (eventoDeOrigem.target.className == "itemLista completed") {
+   if (eventoDeOrigem.target.className === "itemLista completed") {
     eventoDeOrigem.target.className = "itemLista";
    } else {
     eventoDeOrigem.target.className = "itemLista completed";
     ids.push(eventoDeOrigem.target.id);
+    return eventoDeOrigem.target;
    }
 }
 function apagaTudo () {
@@ -53,5 +55,8 @@ function apagaCompletos () {
     ids = [];
 }
 function salvaTarefas () {
-    localStorage('lista', listaDeTarefas);
+   
+}
+function removeSelecionado () {
+    listaDeTarefas.removeChild(document.getElementById("clicado"));
 }
