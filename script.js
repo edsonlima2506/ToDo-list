@@ -32,8 +32,9 @@ function trocaBg (eventoDeOrigem) {
             document.getElementById(identificador).style.backgroundColor = "white";
         }
     }
-    eventoDeOrigem.target.id = "clicado";
-    document.getElementById("clicado").style.backgroundColor = "rgb(128, 128, 128)";
+    let itemClicado = eventoDeOrigem.target.id;
+    document.getElementById(itemClicado).style.backgroundColor = "rgb(128, 128, 128)";
+    return itemClicado;
 }
 function completaTarefa (eventoDeOrigem) {
    if (eventoDeOrigem.target.className === "itemLista completed") {
@@ -58,5 +59,5 @@ function salvaTarefas () {
    
 }
 function removeSelecionado () {
-    listaDeTarefas.removeChild(document.getElementById("clicado"));
+    
 }
