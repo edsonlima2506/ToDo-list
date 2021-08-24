@@ -30,12 +30,12 @@ function trocaBg (eventoDeOrigem) {
         let bgColor = document.getElementById(identificador).style.backgroundColor;
         if (bgColor == "rgb(128, 128, 128)") {
             document.getElementById(identificador).style.backgroundColor = "white";
-            document.getElementById(identificador).className = "itemLista";
+            document.getElementById(identificador).setAttribute("name", "");
         }
     }
     let itemClicado = eventoDeOrigem.target.id;
     document.getElementById(itemClicado).style.backgroundColor = "rgb(128, 128, 128)";
-    document.getElementById(itemClicado).className = "itemLista selecionado";
+    document.getElementById(itemClicado).setAttribute("name", "selecionado");
 }
 function completaTarefa (eventoDeOrigem) {
    if (eventoDeOrigem.target.className === "itemLista completed") {
@@ -43,7 +43,6 @@ function completaTarefa (eventoDeOrigem) {
    } else {
     eventoDeOrigem.target.className = "itemLista completed";
     ids.push(eventoDeOrigem.target.id);
-    return eventoDeOrigem.target;
    }
 }
 function apagaTudo () {
@@ -60,7 +59,7 @@ function salvaTarefas () {
    
 }
 function removeSelecionado () {
-    let remover = document.getElementsByClassName("selecionado");
+    let remover = document.getElementsByName("selecionado");
     listaDeTarefas.removeChild(remover[0]);
     console.log(remover);
 }
