@@ -18,7 +18,7 @@
  
  ## Resultado
  
- ## Instalando as depedencias
+ ## Instalando as dependências
  
  1. Clone o repositório
   * `git clone git@github.com:edsonlima2506/ToDo-list.git`
