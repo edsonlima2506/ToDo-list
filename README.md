@@ -16,7 +16,10 @@
  O foco do projeto foi a manipulação do DOM através do JavaScript </br>
  adicionando novas tarefas, deletando-as e modificando seus estilos.
  
- ## Resultado
+## Resultado
+
+https://user-images.githubusercontent.com/81549048/148474413-29f6f5e3-9422-4bac-aca2-c4d84d1424ad.mp4
+
  
  ## Instalando as dependências
  
